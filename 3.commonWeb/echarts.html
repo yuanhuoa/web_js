@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loading</title>
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" type="text/css" href=""/>
+    <script src="echarts/echarts.min.js"></script>
+    <style>
+        .slide{
+            height: 30px;
+            width: 150px;
+            border-radius: 5px;
+            border: 1px solid gray;
+            background-color: #efefef;
+            cursor: pointer;
+        }
+        .slide:hover{
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div style="margin: 0 auto;width: 1050px;border: 1px gainsboro solid">
+    <h3><a href="all.html">go to all</a></h3>
+    <h3 style="display: inline-block;">1.first...</h3><input type="button" value="show and hidden" class="slide">
+    <div style="display: block">
+        <p>完全版：echarts/dist/echarts.js，体积最大，包含所有的图表和组件，所包含内容参见：echarts/echarts.js。</p>
+        <p>常用版：echarts/dist/echarts.common.js，体积适中，包含常见的图表和组件，所包含内容参见：echarts/echarts.common.js。</p>
+        <p>精简版：echarts/dist/echarts.simple.js，体积较小，仅包含最常用的图表和组件，所包含内容参见：echarts/echarts.simple.js。</p>
+        <div id="main" style="width: 600px;height:400px;"></div>
+        <div id="main1" style="width: 600px;height:400px;"></div>
+    </div>
+    <br/>
+
+
+</div>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //点击显示隐藏
+        $(".slide").click(function () {
+            $(this).next().slideToggle("fast")
+        })
+    })
+</script>
+<script type="text/javascript" src="echarts/first.js"></script>

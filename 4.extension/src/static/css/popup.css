@@ -1,0 +1,270 @@
+#div_show{
+  display: none;
+  position: fixed;
+  right: 13px;
+  top: 15px;
+  width: 330px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.3);
+  z-index: 999999;
+  padding: 0;
+  animation: initial;
+  transition: opacity 0.2s;
+  color: initial;
+  font-family: initial;
+  font-feature-settings: initial;
+  font-kerning: initial;
+  font-size: initial;
+  font-stretch: initial;
+  font-style: initial;
+  font-variant: initial;
+  font-variation-settings: initial;
+  font-weight: initial;
+  text-orientation: initial;
+  text-rendering: initial;
+  -webkit-font-smoothing: initial;
+  -webkit-locale: initial;
+  -webkit-text-orientation: initial;
+  -webkit-writing-mode: initial;
+  writing-mode: initial;
+  zoom: initial;
+  place-content: initial;
+  place-items: initial;
+  place-self: initial;
+  alignment-baseline: initial;
+  backface-visibility: initial;
+  background-blend-mode: initial;
+  baseline-shift: initial;
+  block-size: initial;
+  border: initial;
+  border-collapse: initial;
+  bottom: initial;
+  box-sizing: initial;
+  break-after: initial;
+  break-before: initial;
+  break-inside: initial;
+  buffered-rendering: initial;
+  caption-side: initial;
+  caret-color: initial;
+  clear: initial;
+  clip: initial;
+  clip-path: initial;
+  clip-rule: initial;
+  color-interpolation-filters: initial;
+  columns: initial;
+  column-fill: initial;
+  column-gap: initial;
+  column-rule: initial;
+  column-span: initial;
+  contain: initial;
+  content: initial;
+  counter-increment: initial;
+  counter-reset: initial;
+  cursor: initial;
+  cx: initial;
+  cy: initial;
+  d: initial;
+  dominant-baseline: initial;
+  empty-cells: initial;
+  filter: initial;
+  flex: initial;
+  flex-flow: initial;
+  float: initial;
+  flood-color: initial;
+  flood-opacity: initial;
+  grid: initial;
+  grid-area: initial;
+  grid-gap: initial;
+  height: initial;
+  hyphens: initial;
+  image-rendering: initial;
+  isolation: initial;
+  left: initial;
+  letter-spacing: initial;
+  lighting-color: initial;
+  line-break: initial;
+  line-height: initial;
+  list-style: initial;
+  margin: initial;
+  mask: initial;
+  mask-type: initial;
+  max-block-size: initial;
+  min-block-size: initial;
+  mix-blend-mode: initial;
+  object-fit: initial;
+  object-position: initial;
+  offset: initial;
+  opacity: 1;
+  order: initial;
+  orphans: initial;
+  outline: initial;
+  outline-offset: initial;
+  overflow-anchor: initial;
+  overflow-wrap: initial;
+  overflow: initial;
+  overscroll-behavior: initial;
+  page: initial;
+  perspective: initial;
+  perspective-origin: initial;
+  pointer-events: auto;
+  quotes: initial;
+  r: initial;
+  resize: initial;
+  rx: initial;
+  ry: initial;
+  scroll-behavior: initial;
+  shape-image-threshold: initial;
+  shape-margin: initial;
+  shape-outside: initial;
+  size: initial;
+  speak: initial;
+  tab-size: initial;
+  table-layout: initial;
+  text-align: initial;
+  text-align-last: initial;
+  text-combine-upright: initial;
+  text-decoration: initial;
+  text-decoration-skip-ink: initial;
+  text-indent: initial;
+  text-overflow: initial;
+  text-shadow: initial;
+  text-size-adjust: initial;
+  text-transform: initial;
+  text-underline-position: initial;
+  touch-action: initial;
+  transform: initial;
+  transform-box: initial;
+  transform-origin: initial;
+  transform-style: initial;
+  user-select: initial;
+  vertical-align: initial;
+  visibility: visible;
+  -webkit-app-region: initial;
+  -webkit-appearance: initial;
+  -webkit-border-after: initial;
+  -webkit-border-before: initial;
+  -webkit-border-end: initial;
+  border-spacing: initial;
+  -webkit-border-image: initial;
+  -webkit-border-start: initial;
+  -webkit-box-align: initial;
+  -webkit-box-decoration-break: initial;
+  -webkit-box-direction: initial;
+  -webkit-box-flex: initial;
+  -webkit-box-flex-group: initial;
+  -webkit-box-lines: initial;
+  -webkit-box-ordinal-group: initial;
+  -webkit-box-orient: initial;
+  -webkit-box-pack: initial;
+  -webkit-box-reflect: initial;
+  -webkit-font-size-delta: initial;
+  -webkit-highlight: initial;
+  -webkit-hyphenate-character: initial;
+  -webkit-line-break: initial;
+  -webkit-line-clamp: initial;
+  -webkit-margin-after: initial;
+  -webkit-margin-collapse: initial;
+  -webkit-margin-before: initial;
+  -webkit-margin-bottom-collapse: initial;
+  -webkit-margin-end: initial;
+  -webkit-margin-start: initial;
+  -webkit-margin-top-collapse: initial;
+  -webkit-mask-box-image: initial;
+  -webkit-mask: initial;
+  -webkit-mask-composite: initial;
+  -webkit-perspective-origin-x: initial;
+  -webkit-perspective-origin-y: initial;
+  -webkit-print-color-adjust: initial;
+  -webkit-rtl-ordering: initial;
+  -webkit-ruby-position: initial;
+  -webkit-tap-highlight-color: initial;
+  -webkit-text-combine: initial;
+  -webkit-text-decorations-in-effect: initial;
+  -webkit-text-emphasis: initial;
+  -webkit-text-emphasis-position: initial;
+  -webkit-text-fill-color: initial;
+  -webkit-text-security: initial;
+  -webkit-text-stroke: initial;
+  -webkit-transform-origin-x: initial;
+  -webkit-transform-origin-y: initial;
+  -webkit-transform-origin-z: initial;
+  -webkit-user-drag: initial;
+  -webkit-user-modify: initial;
+  white-space: initial;
+  widows: initial;
+  will-change: initial;
+  word-break: initial;
+  word-spacing: initial;
+  word-wrap: initial;
+  x: initial;
+  y: initial;
+}
+
+#div_show p{
+  margin: 0;
+  padding: 0;
+}
+
+._header_show{
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #eeeeee;
+}
+
+._title_img{
+  width: 50px;
+  height: 50px;
+}
+
+._close_show{
+  position: absolute;
+  right: 13px;
+  top: 18px;
+  color: #c4c4c4;
+  font-size: 18px;
+  cursor: pointer;
+}
+._close_show:hover{
+  color: #686868;
+}
+
+._content_show{
+  max-height: 470px;
+  overflow-y: scroll;
+}
+
+.page_show{
+  width: 293px;
+  border: 1px solid #eeeeee;
+  margin: 10px;
+}
+
+._footer_left_show{
+  display: inline-block;
+  width: 49%;
+  padding: 13px 0;
+  text-align: center;
+  cursor: pointer;
+  border-top: 1px solid #eeeeee;
+}
+._footer_left_show:hover{
+  background: #dedede;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

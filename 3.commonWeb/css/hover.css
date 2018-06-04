@@ -1,0 +1,151 @@
+/* 悬浮下侧显示 */
+.box{
+    width:300px;
+    height:200px;
+    border: 1px gainsboro solid;
+    position:relative;
+    cursor:pointer;
+}
+.box .bmbox{
+    width:300px;
+    height:30px;
+    background:black;
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    display:none;
+    font:12px/30px "宋体"; color:white;
+    text-align:center;
+}
+.box:hover .bmbox{
+    width:300px;
+    height:30px;
+    background:black;
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    display:block;
+    font:12px/30px "宋体"; color:white;
+    text-align:center;
+    opacity: 0.3;
+}
+
+/* 图片悬浮弱化显示 */
+.gray-img{
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.gray-img:hover{
+    opacity: 0.88;
+}
+
+/* 悬浮显示不同页面 */
+.contain{
+    width:300px;
+    height:200px;
+    border: 1px gainsboro solid;
+    vertical-align: middle;
+}
+.contain-header{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width:100%;
+    height:45px;
+    border-bottom: 1px gainsboro solid;
+    vertical-align: middle;
+    background-color: #04b1cc;
+    font-family: punctuation,"PingFangSC-Regular","Microsoft Yahei","sans-serif";
+}
+.contain-list{
+    float: left;
+    position: relative;
+    color: #ffffff;
+    padding: 0 10px;
+    transition:display 1s; /* 缓慢的效果呈现 */
+}
+.contain-list:hover{
+    background-color: #ffffff;
+    color: black;
+}
+.contain-list:hover .drop-down-icon{
+    border-top-color: #404040;
+}
+.contain-list:hover .contain-content{
+    display: block;
+}
+.contain-list:hover .role-ui-icon{
+    background-position: -562px -312px;
+}
+.contain-title-left{
+    display: inline-block;
+    text-align: center;
+    line-height: 45px;
+    cursor: pointer;
+}
+.drop-down-icon{
+    width: 0;
+    height: 0;
+    border-width: 3px;
+    border-style: solid dashed dashed dashed;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    zoom: 1;
+    line-height: 0;
+    border-top-color: #fff;
+    font-style: normal;
+    display: inline-block;
+}
+.drop-down-icon2{
+    position: absolute;
+    z-index: 999;
+    left: 50%;
+    top: 39px;
+    margin-left: -6px;
+    width: 7px;
+    height: 7px;
+    border: solid #04c3e0;
+    border-width: 0 0 2px 2px;
+    background: #fff;
+    -moz-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+.role-ui-icon{
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-image: url(../images/mostUser.png);
+    background-position: -536px -312px;
+}
+.del-ui-icon{
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-image: url(../images/mostUser.png);
+    background-position: -514px -108px;
+}
+.contain-content{
+    display: none;
+    position: absolute;
+    top: 45px;
+    left: -1px;
+    background-color: #fff;
+    border: 1px solid gainsboro;
+    width: 320px;
+    height: 223px;
+    z-index: 550;
+}
+
+
+
+#div1 ,#div2{width:198px; height:66px;padding:10px;border:1px solid #aaaaaa;}

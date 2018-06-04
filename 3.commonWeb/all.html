@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loading</title>
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="css/loading.css"/>
+    <link rel="stylesheet" type="text/css" href="css/uploadFile.css"/>
+    <link rel="stylesheet" type="text/css" href="css/log.css"/>
+    <link rel="stylesheet" type="text/css" href="css/hover.css">
+    <link rel="stylesheet" type="text/css" href="css/delay.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.7/css/bootstrap.min.css">-->
+    <link rel="stylesheet" type="text/css" href="css/jstree/jstree.min.css">
+    <style>
+        .slide{
+            height: 30px;
+            width: 150px;
+            border-radius: 5px;
+            border: 1px solid gray;
+            background-color: #efefef;
+            cursor: pointer;
+        }
+        .slide:hover{
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div style="margin: 0 auto;width: 1050px;border: 1px gainsboro solid">
+    <h3><a href="echarts.html">echarts</a></h3>
+    <h3 style="display: inline-block;">1.css实现加载中...</h3><input type="button" value="show and hidden" class="slide">
+    <div id="loader" style="display: none"></div>
+    <br/>
+
+    <h3 style="display: inline-block;">2.insertAdjacentHTML插入方法</h3><input type="button" value="show and hidden" class="slide">
+    <div style="display: none">
+        <input type="button" value="点击插入标签开始前" id="beforeBegins">
+        <input type="button" value="点击插入标签开始后" id="afterBigins">
+        <input type="button" value="点击插入标签结束前" id="beforeEnds">
+        <input type="button" value="点击插入标签结束后" id="afterEnds">
+        <ul id="list">
+            <li>one</li>
+            <li>two</li>
+        </ul>
+    </div>
+    <br/>
+
+    <h3 style="display: inline-block;">3.数组的基本操作</h3><input type="button" value="show and hidden" class="slide">
+    <div style="display: none">
+        <ul style="list-style: none;">
+            <li><strong>1.join方法可以将数组中的元素以特定的字符连接起来,即数组-->string</strong></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;["a","b","c","d","e","f"]点击以<input type="text" style="width: 20px;" id="connector">连接
+                <input type="button" id="connectors" value="点击"><span style="margin-left: 10px;color: #ff8401;" id="conJoin"></span>
+            </li>
+            <li style="margin-top: 7px;"><strong>2.pop方法会移除数组中的最后一个元素并将该元素返回，原数组改为移除最后一个元素后的数组</strong></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;["a","b","c","d","e","f"]点击以删除数组最后一个元素：<span style="color: #ff8401;" id="connectorPop"></span>
+                <input type="button" id="connectorsPop" value="点击"><span style="margin-left: 10px;color: #ff8401;" id="conPop"></span>
+            </li>
+            <li style="margin-top: 7px;"><strong>3.shift方法会移除数组中的第一个元素并将其返回，原数组改为移除第一个元素后的数组</strong></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;["a","b","c","d","e","f"]点击以删除数组第一个元素：<span style="color: #ff8401;" id="connectorDel"></span>
+                <input type="button" id="connectorsDel" value="点击"><span style="margin-left: 10px;color: #ff8401;" id="conDel"></span>
+            </li>
+            <li style="margin-top: 7px;"><strong>4.unshift方法会在数组的前面添加元素，可以同时接收多个参数，用逗号隔开,并返回新数组的长度</strong></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;["a","b","c","d","e","f"]点击在数组开始增加<input style="color: #ff8401;" id="connectorAdd">
+                <input type="button" id="connectorsAdd" value="点击"><span style="margin-left: 10px;color: #ff8401;" id="conAdd"></span>
+            </li>
+
+            <li style="margin-top: 10px;"><strong>5.forEach进行数组遍历:forEach()方法对数组的每个元素执行一次提供的函数。总是返回undefined；</strong></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,2,3,4,5,6]点击在数组+1
+                <input type="button" id="forEachArray" value="点击"><span style="margin-left: 10px;color: #ff8401;" id="forEachArraySpan"></span>
+            </li>
+            <li style="margin-top: 7px;"><strong>6.map() 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。返回值是一个新的数组；</strong></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,2,3,4,5,6]点击在数组+1
+                <input type="button" id="mapArray" value="点击"><span style="margin-left: 10px;color: #ff8401;" id="mapArraySpan"></span>
+            </li>
+        </ul>
+    </div>
+    <br/>
+
+    <h3 style="display: inline-block;">4.文件上传样式...</h3><input type="button" value="show and hidden" class="slide">
+    <div style="display: none">
+        <div>
+            <label class="input-file-label"><input class="input-file-none" readonly id="input-name"></label>
+            <input type="file" id="uploadFile" class="input-file" multiple="true">  <!--mulitiple属性控制是否允许上传多个文件-->
+            <span id="delFile" class="delFile">×</span>
+            <span class="input-file-span" id="uploadFileSpan">upload..</span>
+            <input type="button" value="upload.." style="height: 30px;
+    border-radius: 3px;
+    background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+    border: 1px solid silver;
+    outline: none;">
+        </div>
+    </div>
+    <br/>
+
+    <h3 style="display: inline-block;">5. 图片懒加载...</h3><input type="button" value="show and hidden" class="slide">
+    <div style="display: none;">
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <img src="" alt="" class="lazy-img" data-src="images/img1.jpg">
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <img src="" alt="" class="lazy-img" data-src="images/img2.jpg">
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <img src="" alt="" class="lazy-img" data-src="images/img3.jpg">
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <img src="" alt="" class="lazy-img" data-src="images/img4.jpg">
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <img src="" alt="" class="lazy-img" data-src="images/img5.jpg">
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <p>测试性配文，测试图片懒加载</p>
+        <img src="" alt="" class="lazy-img" data-src="images/img6.jpg">
+    </div>
+    <br/>
+
+    <h3 style="display: inline-block;">6. label的使用...</h3><input type="button" value="show and hidden" class="slide">
+    <div style="display:none;">
+        <p>label for属性可以将input框和文字联系起来</p>
+        <label for="male">点击选中input</label><input type="checkbox" id="male"><br/>
+        <label>点击选中input<input type="checkbox"></label>
+    </div>
+    <br/>
+
+    <h3 style="display: inline-block;">7. enter键提交...</h3><input type="button" value="show and hidden" class="slide">
+    <div style="display: none;">
+        <div class="log-div">
+            <form target="rfFrame" class="log-form">
+                <div>
+                    <p class="log-title">用户名密码登录</p>
+                    <p id="log-error-p">
+                        <span id="log-error"></span>
+                    </p>
+                    <p class="log-p">
+                        <input class="log-input" type="text" id="name" placeholder="请输入手机号或邮箱">
+                        <span class="del-log" id="del-name">×</span>
+                    </p>
+                    <p class="log-p">
+                        <input class="log-input" type="password" id="psw" placeholder="密码">
+                        <span class="del-log" id="del-psw">×</span>
+                    </p>
+                    <p>
+                        <label class="log-again-span">
+                            <input type="checkbox" checked id="log-again" class="log-again">
+                            下次自动登录
+                        </label>
+                    </p>
+                    <p class="log-sub-p">
+                        <input class="log-sub" type="submit" id="sub" value="登录">
+                    </p>
+                    <p>
+                        <a href="#" class="forgot-psw">忘记密码?</a>
+                        <a href="#" class="forgot-psw forgot-right">立即注册</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <iframe name="rfFrame" style="display:none;"></iframe>
+    </div>
+    <br/>
+
+    <h3 style="display: inline-block;">8. 悬浮黑幕...</h3><input type="button" value="show and hidden" class="slide">
+    <div style="display: none;">
+        <div class="box" style="display: inline-block;">
+            <div>1234567489  hover.css</div>
+            <div>1234567489</div>
+            <div>1234567489</div>
+            <div>1234567489</div>
+            <div>1234567489</div>
+            <div class="bmbox">文字</div>
+        </div>
+
+        <img class="gray-img" src="images/img-9.png" alt="这是一个图片" title="书本  hover.css">
+
+        <div class="contain" style="display: inline-block;">
+            <ul class="contain-header">
+                <li class="contain-list" style="background: #04c3e0">
+                    <i class="role-ui-icon"></i>
+                    <span class="contain-title-left">one</span>
+                    <i class="drop-down-icon"></i>
+                    <i class="drop-down-icon2"></i>
+
+                    <div class="contain-content">
+                        <span>css 实现hover显示   hover.css</span>
+                        <span>精灵图定位</span>
+                        <i class="del-ui-icon"></i>
+                    </div>
+                </li>
+                <li class="contain-list">
+                    <i class="role-ui-icon"></i>
+                    <span class="contain-title-left">two</span>
+                    <i class="drop-down-icon"></i>
+                    <div class="contain-content">
+                        <span>two page</span>
+                        <i class="del-ui-icon"></i>
+                    </div>
+                </li>
+                <li class="contain-list">
+                    <i class="role-ui-icon"></i>
+                    <span class="contain-title-left">three</span>
+                    <i class="drop-down-icon"></i>
+                    <div class="contain-content">
+                        <span>three page</span>
+                        <i class="del-ui-icon"></i>
+                    </div>
+                </li>
+            </ul>
+
+
+        </div>
+
+        <div id="div1" style="display: inline-block;" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="div2" style="display: inline-block;" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <img id="drag1" style="display: inline-block;" src="images/w3.gif" draggable="true" ondragstart="drag(event)" />
+
+    </div>
+    <br/>
+
+    <h3 style="display: inline-block;">9. 悬停200时间内不显示...</h3><input type="button" value="show and hidden" class="slide">
+    <div style="display: none;">
+        <div class="main-contain">
+            <div>
+                <ul class="contain-ul">
+                    <li class="contain-list-logo">this is logo</li>
+                    <li id="contain-list-1" class="contain-list-li">
+                        <a class="contain-list-a" href="#">
+                            <span>Prime Video</span>
+                            <i class="drop-down-icon"></i>
+                        </a>
+                        <div id="contain-content-1" class="contain-content">
+                            <p>All Videos</p>
+                            <p>Included with Prime</p>
+                            <p>Prime Video Channels</p>
+                            <p>Rent or Buy</p>
+                            <p>Your Watchlist</p>
+                        </div>
+                    </li>
+                    <li id="contain-list-2" class="contain-list-li">
+                        <a class="contain-list-a" href="#">
+                            <span>Fire TV</span>
+                            <i class="drop-down-icon"></i>
+                        </a>
+                        <div id="contain-content-2" class="contain-content">
+                            <span>two page</span>
+                        </div>
+                    </li>
+                    <li id="contain-list-3" class="contain-list-li">
+                        <a class="contain-list-a" href="#">
+                            <span>Electronics</span>
+                            <i class="drop-down-icon"></i>
+                        </a>
+                        <div id="contain-content-3" class="contain-content">
+                            <span>three page</span>
+                            <p>Rent or Buy</p>
+                            <p>Your Watchlist</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 下拉hover -->
+            <div id="aaa" style="margin: 50px;width: 150px;display: inline-block;">
+                <style>
+                    #aaa:hover #drop-down-div{display: block;}
+                    #drop-down-div{
+                        display: none;
+                        width: 300px;
+                        height: 200px;
+                        border: 1px solid gainsboro;
+                        background-color:white;margin-top: 10px;
+                        border-radius: 8px;
+                        box-shadow: -4px 9px 13px rgba(0, 0, 0, 0.09);
+                        position: relative;
+                    }
+                    .drop-up{
+                        position: absolute;
+                        z-index: 1;
+                        left: 20%;
+                        top: -6px;
+                        margin-left: -6px;
+                        width: 7px;
+                        height: 7px;
+                        border: solid gainsboro;
+                        border-width: 0 0 1px 1px;
+                        background: #fff;
+                        -moz-transform: rotate(135deg);
+                        -webkit-transform: rotate(135deg);
+                        transform: rotate(135deg);
+                    }
+                </style>
+                <input id="drop-down" value="下拉" type="button" class="slide">
+                <div id="drop-down-div">
+                    <i class="drop-up"></i>
+                    <p>君不见黄河远上白云间</p>
+                </div>
+            </div>
+
+
+            /* 悬浮显示背景颜色 */
+            <style>
+                .wrapper-main{
+                    width: 730px;
+                    float: left;
+                    padding: 17px;
+                    background: #fff;
+                }
+                .wrapper-div{
+                    float: left;
+                    width: 195px;
+                    margin: 17px 18px;
+                    cursor: pointer;
+                    padding: 0px;
+                    height: 293px;
+                    position: relative;
+                    border-bottom: none;
+                }
+                .wrapper{
+                    background-color: #fff;
+                    border-radius: 8px;
+                    width: 195px;
+                    height: 293px;
+                    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.3);
+                    position: relative;
+                }
+                .wrapper-a-div{
+                    border-radius: 8px;
+                    width: 195px;
+                    height: 293px;
+                    position: relative;
+                }
+                .wrapper-div a{
+                    text-decoration: none;
+                    transition: all .2s linear;
+                    display: block;
+                    width: 195px;
+                    height: 293px;
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0;
+                    top: 0px;
+                }
+                .wrapper-div a:hover{
+                    left: -17px;
+                    top: -17px;
+                    bottom: -17px;
+                    background: #F4F4F5;
+                    padding: 17px;
+                    border-radius: 6px;
+                 }
+                .wrapper-img{
+                    border-radius: 5px;
+                    max-width: 195px;
+                    max-height: 195px;
+                }
+                .text{
+                    max-height: 36px;
+                    width: 100%;
+                    max-width: 195px;
+                    overflow: hidden;
+                    margin: 10px 0px;
+                    margin-bottom: 6px;
+                    font-size: 13px;
+                    line-height: 18px;
+                    text-align: left;
+                    color: #010101;
+                    word-break: break-word;
+                }
+                .price_text{
+                    color: #D42F2F;
+                    height: 20px;
+                    line-height: 20px;
+                    overflow: hidden;
+                    font-size: 12px;
+                    padding-left: 3px;
+                }
+                .crossed{
+                    color: #bbb;
+                    text-decoration: line-through;
+                }
+                .storeName{
+                    color: #9a9a9a;
+                    width: 110px;
+                    float: left;
+                    font-size: 12px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    line-height: 20px;
+                    margin: 5px 0px;
+                }
+                .hottag{
+                    min-width: 28px;
+                    height: 20px;
+                    line-height: 20px;
+                    position: absolute;
+                    left: -5px;
+                    top: 15px;
+                    color: #fff;
+                    text-align: center;
+                    font-size: 14px;
+                    padding: 0 8px;
+                    z-index: 1;
+                    background: rgba(218, 55, 100,.8);
+                }
+                .hottag:before{
+                    content: '';
+                    width: 0;
+                    height: 0;
+                    border-top: 5px solid rgba(218, 55, 100,.8);
+                    border-left: 5px solid transparent;
+                    position: absolute;
+                    bottom: -4px;
+                    left: 0;
+                }
+
+            </style>
+            <div class="wrapper-main">
+                <div class="wrapper-div">
+                    <div class="wrapper">
+                        123
+                    </div>
+                </div>
+                <div class="wrapper-div">
+                    <a href="#">
+                        <div class="wrapper-a-div">
+                            <span class="hottag">HOT</span>
+                            <img class="wrapper-img" src="images/11.jpg"></img>
+                            <div class="text">
+                                Flexible Makeup Sponge Beauty Blender Foundation Essence Make Up Sponges for Concealer &amp; Pressed Powder,latex free,Multi-Color,5PACK
+                            </div>
+                            <div class="price_text">
+                                <span>$3.00</span>
+                                <span class="crossed">$10.00</span>
+                                <span class="notice_item">70% Off</span>
+                            </div>
+                            <div>
+                                <div><span class="storeName">Clothing,Jewelry&amp;Bags</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <br/>
+    <br/>
+
+    <h3 style="display: inline-block;">10.树形菜单...</h3><input type="button" value="show and hidden" class="slide">
+    <div style="display: none;">
+        <!--  1-0 jstree -->
+        <div id="container">
+            <ul>
+                <li>Root node1
+                    <ul>
+                        <li>Child node 1</li>
+                        <li>Child node 2</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!--  1-1 jstree -->
+        <div id="container1"></div>
+        <!--  1-2 jstree -->
+        <div id="container2"></div>
+        <!--  1-3 jstree -->
+        <div id="container3"></div>
+        <!--  1-4 jstree -->
+        <div id="container4"></div>
+
+    </div>
+    <br/>
+
+<a id="toplink">返回顶端</a>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/insert.js"></script>
+<script type="text/javascript" src="js/array.js"></script>
+<script type="text/javascript" src="js/uploadFile.js"></script>
+<script type="text/javascript" src="js/getImage.js"></script>
+<script type="text/javascript" src="js/log.js"></script>
+<script type="text/javascript" src="js/hover.js"></script>
+<script type="text/javascript" src="js/delay.js"></script>
+<script type="text/javascript" src="js/jstree.min.js"></script>
+<script type="text/javascript" src="js/jstree.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //点击显示隐藏
+        $(".slide").click(function () {
+            $(this).next().slideToggle("fast")
+        })
+    })
+    $("#toplink").click(function () {
+        $('html, body').animate({scrollTop: 0}, 100)
+    })
+</script>

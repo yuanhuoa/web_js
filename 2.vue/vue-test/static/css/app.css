@@ -1,0 +1,47 @@
+#app{
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 1050px;
+  margin: 0 auto;
+}
+.container{
+  width: 220px;
+  float: left;
+  font-size: 14px;
+  border: 1px solid gainsboro;
+}
+.container ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.container ul li{
+  border-bottom: 1px solid gainsboro;
+}
+.container ul li:last-child{
+  border-bottom: 0px;
+}
+.container-a{
+  color: #000;
+  text-decoration: none;
+  display: inline-block;
+  width: 95%;
+  padding: 10px 0 10px 5%;
+}
+.container-a-click{
+  color: #fff;
+  font-weight: 600;
+  background-color: #96B97D;
+}
+.container ul li a:hover{
+  font-weight: 600;
+}
+.container-a-click:hover{
+  background-color: #a0cd80;
+}
+.contain-main{
+  margin: 0 20px;
+  width: 708px;
+  float: left;
+}

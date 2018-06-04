@@ -1,0 +1,42 @@
+{
+  "name": "GoogleExtension",
+  "short_name": "ge",
+  "version": "1.0.0",
+  "version_name": "1.0.0",
+  "description": "Collects millions of Amazon coupons and automatically apply when you shop on Amazon",
+  "background": {
+    "persistent": false,
+    "page": "background.html"
+  },
+  "browser_action": {
+    "default_title": "Google Extension",
+    "default_icon": "static/icons/icon_16_default.png"
+  },
+  "permissions": [
+    "tabs",
+    "alarms",
+    "storage",
+    "webNavigation",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "icons": {
+    "128": "static/icons/icon_128.png",
+    "16": "static/icons/icon_16.png",
+    "48": "static/icons/icon_48.png"
+  },
+  "web_accessible_resources": [
+    "static/*"
+  ],
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "content_scripts": [ {
+    "all_frames": false,
+    "js": [ "popup.js" ],
+    "match_about_blank": false,
+    "matches": [ "https://*/*","http://*/*" ],
+    "run_at": "document_end"
+  } ],
+  "homepage_url": "https://www.baidu.com"
+}
