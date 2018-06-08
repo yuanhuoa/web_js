@@ -90,7 +90,15 @@ chrome.tabs.onUpdated.addListener((tabId, info, tab) => {
  */
 chrome.runtime.onInstalled.addListener(response => {
   response['reason'] == "install" && getPluginIdFromServer();
+
+    if(response['reason'] == "install"){window.open("http://www.dealgogogo.com/welcomes");}
+    if(response['reason'] == "update"){window.open("http://www.dealgogogo.com/welcomes");}
 });
+
+/**
+ * 卸载打开url
+ */
+chrome.runtime.setUninstallURL("http://www.baidu.com");
 
 function getPluginIdFromServer() {
   // 储存插件id
@@ -104,3 +112,4 @@ function getPluginIdFromServer() {
     })
     .catch(err=>console.log(err))
 }
+

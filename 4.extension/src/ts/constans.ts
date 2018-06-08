@@ -19,15 +19,15 @@ export const DIV_SHOW: string = `
 
 export const FIRST_PAGE: string =`
 <div id="_first_page" class="page_show">
+  <input id="coupon" type="text" value="你好">
+  <span id="btnCoupon" class="btn-copy" data-clipboard-target="#coupon">Copy</span>
+  <input id="md1" type="text">
   <p>123</p>
   <p>123</p>
   <p>123</p>
   <p>123</p>
   <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
-  <p>123</p>
+  <p>123</p>  
   <p>123</p>
   <p>123</p>
   <p>123</p>

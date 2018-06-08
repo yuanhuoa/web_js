@@ -1,41 +1,72 @@
 import "../static/css/popup.css";
+import "../static/css/options.css";
 import $ = require("../static/js/jquery-3.3.1.min.js");
+import Clipboard = require("../static/js/clipboard-1.7.1.min.js");
+import MD5 = require("md5.js");
 
 var extension = null;
 import {
-  DIV_SHOW, FIRST_PAGE, SECOND_PAGE
+    DIV_SHOW, FIRST_PAGE, SECOND_PAGE
 } from "./constans";
 
-function addDocumentUrlListener() {
-  document.body.insertAdjacentHTML("beforeend", DIV_SHOW);
-  $("#_close_show").click(function () {
-    $("#div_show").css("display", "none")
-  })
-
-  // 切换页面
-  $("#_footer_left_show").click(function () {
-    if ($("#_first_page")[0] != undefined) return
-    $("#_second_page").remove()
+/**
+ * 给第一页增加事件
+ */
+function addFirstEvent(){
+    // 增加首页内容
     $("#_content_show").html(FIRST_PAGE)
-  })
-  $("#_footer_right_show").click(function () {
-    if ($("#_second_page")[0] != undefined) return
-    $("#_first_page").remove()
-    $("#_content_show").html(SECOND_PAGE)
-  })
+    // 复制关键词  angular2 ngx-clipboard 复制剪贴板: https://segmentfault.com/a/1190000009704111
+    var clipboard = new Clipboard('#btnCoupon')
+    clipboard.on('success', function (e) {
+        e.clearSelection()
+        $('#btnCoupon').text("copied")
+        $('#btnCoupon').css({"background-color": "#00c57d"})
+        setTimeout(function () {
+            $('#btnCoupon').text("copy")
+            $('#btnCoupon').removeAttr("style")
+        },1000)
+    })
+
+    console.log(new MD5().update("123sdgaf").digest('hex'))
+}
+
+/**
+ * 加载js的时候添加节点
+ */
+function addDocumentUrlListener() {
+    document.body.insertAdjacentHTML("beforeend", DIV_SHOW);
+    $("#_close_show").click(function () {
+        $("#div_show").css("display", "none")
+    })
+
+    addFirstEvent()
+    deleteAD()
+
+    // 切换页面
+    $("#_footer_left_show").click(function () {
+        if ($("#_first_page")[0] != undefined) return
+        $("#_second_page").remove()
+        $("#_content_show").html(FIRST_PAGE)
+    })
+    $("#_footer_right_show").click(function () {
+        if ($("#_second_page")[0] != undefined) return
+        $("#_first_page").remove()
+        $("#_content_show").html(SECOND_PAGE)
+    })
 }
 addDocumentUrlListener();
+
+
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   extension = sender
   $("#_title_img").attr("src", 'chrome-extension://'+ extension['id'] +'/static/icons/title.png')
-  $("#_content_show").html(FIRST_PAGE)
   if(message.title === "change-show"){
     // 显示主div
     if($("#div_show").css("display") == "none"){
-      $("#div_show").css("display", "block")
+        $("#div_show").css("display", "block")
     } else {
-      $("#div_show").css("display", "none")
+        $("#div_show").css("display", "none")
     }
   }
 });
@@ -91,4 +122,20 @@ function getBrowserInfo(){
     browserType = "Safari";
   }
   console.log(browserType)
+}
+
+/**
+ * 删除广告
+ */
+function deleteAD() {
+    //电影天堂
+    if($('body>a') || $('body>a')){
+        var num = 0;
+        var a = setInterval(function () {
+            if($("div[id^=cs_]"))$("div[id^=cs_]").remove()
+            if($('body>a'))$('body>a').remove()
+            num++;
+            if(num==5)clearInterval(a);
+        },800);
+    }
 }
