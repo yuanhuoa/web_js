@@ -1,4 +1,4 @@
-import {AJAX} from "./utils";
+import {AJAX} from "./utils/getData";
 
 let buyerId:number = 0;
 let pluginId: number = 0;

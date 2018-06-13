@@ -1,6 +1,6 @@
 import {
-} from "./constans";
-import {AJAX} from "./utils";
+} from "./html/constans";
+import {AJAX} from "./utils/getData";
 
 let tabId:number;
 
