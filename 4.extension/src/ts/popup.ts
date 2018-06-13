@@ -39,6 +39,6 @@ function playSuccessAudio() {
 }
 
 // 删除广告
-new DelAd().deleteAd()
+DelAd.deleteAd()
 //获取浏览器信息
-console.log(new GetBrowser().getBrowserInfo())
+console.log(GetBrowser.getBrowserInfo())

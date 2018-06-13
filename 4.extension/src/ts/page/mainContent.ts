@@ -32,7 +32,7 @@ export class MainContent {
         // 增加首页内容
         $("#_content_show").html(FIRST_PAGE);
 
-        // 复制关键词  angular2 ngx-clipboard 复制剪贴板: https://segmentfault.com/a/1190000009704111
+        // 复制关键词
         var clipboard = new Clipboard('#btnCoupon');
         clipboard.on('success', function (e) {
             e.clearSelection();

@@ -4,7 +4,7 @@
  *    ua.match(/windows/)windows
  */
 export class GetBrowser {
-    getBrowserInfo(){
+    static getBrowserInfo(){
         var ua = navigator.userAgent.toLocaleLowerCase();
         var browserType=null;
         if (ua.match(/msie/) != null || ua.match(/trident/) != null) {
