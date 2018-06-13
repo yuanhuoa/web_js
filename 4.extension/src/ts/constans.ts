@@ -26,7 +26,8 @@ export const FIRST_PAGE: string =`
   <p>123</p>
   <p>123</p>
   <p>123</p>
-  <p>123</p>
+  <input id="mdnum" type="text"><span id="md5" class="btn-copy">转换</span>
+  <input style="width: 95%" id="mdnumTo" type="text">
   <p>123</p>  
   <p>123</p>
   <p>123</p>
